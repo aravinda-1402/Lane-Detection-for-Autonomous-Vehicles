@@ -18,7 +18,7 @@
   •	Decoding layer: 7 layers of transpose of Convolution operation or deconvolution performed with intermittent Upsampling and Dropouts
   •	Adam Optimizer and Mean squared loss used 
 
-* *RESULTS*
+* *RESULTS*:
 
 Batch Size: 128, Epochs: 10
 Accuracy without LSTM layers=92% 
@@ -36,7 +36,8 @@ Accuracy with LSTM layers=93.5%
   •	Use polynomial fit curve function to find out the quadratic function of curve of the lane
   •	Once we have the quadratic function for the curvature of the lane, the radius of curvature of the road and offset from center of the road is calculated by mathematical formulas.
 
-* *RESULTS*
+* *RESULTS*:
+
 Offset calculation: giving result within 1-2m range which is ideal
 Radius of curvature: two radius of curvatures obtained for left and right boundary of lane each. Values correspond with the visual curves of the road.
 
