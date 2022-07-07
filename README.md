@@ -1,10 +1,10 @@
 # LANE DETECTION ALGORITHM
 
-*Aim*: To build an algorithm which can detect lanes in a road and calculate and display features like offset from the center of the lane, radius of curvature of the road etc.
+**Aim**: To build an algorithm which can detect lanes in a road and calculate and display features like offset from the center of the lane, radius of curvature of the road etc.
 
-Methodology:
+**Methodology:**
 
-Part 1: Identification of the Lanes
+**Part 1: Identification of the Lanes**
 
 CNN MODEL: SegNet architecture is used with optimized modifications to it. Encoder-Decoder pairs are used to create feature maps for classifications of different resolutions. The architecture is designed such that- the input is an image of road, the labeled output is an image with the lane marked with a single RGB channel, hence the output of the CNN model is an image with lane marked in a single RGB channel.
 
@@ -24,7 +24,7 @@ Batch Size: 128, Epochs: 10
 Accuracy without LSTM layers=92% 
 Accuracy with LSTM layers=93.5% 
 
-Part 2: Mathematical Calculation and Extraction of Offset and Radius of Curvature of road 
+**Part 2: Mathematical Calculation and Extraction of Offset and Radius of Curvature of road** 
 
 MODEL: Use the live camera/video feed obtained after running the trained parameters of the CNN model which will give us the identified lane.  Extract the required features using OpenCV functions and mathematical formulas.
 
