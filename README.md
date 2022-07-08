@@ -1,5 +1,5 @@
 # LANE DETECTION ALGORITHM
-<img src="video.gif" width="425"/> <img src="output.gif" width="425"/>
+<img src="video.gif" width="420"/> <img src="output.gif" width="420"/>
 <br>
 <br>**Aim**: To build an algorithm which can detect lanes in a road and calculate and display features like offset from the center of the lane, radius of curvature of the road etc.
 
