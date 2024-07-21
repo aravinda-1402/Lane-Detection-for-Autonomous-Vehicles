@@ -1,47 +1,59 @@
-# LANE DETECTION ALGORITHM
-<img src="video.gif" width="410"/> <img src="output.gif" width="410"/>
-<br>
-<br>**Aim**: To build an algorithm which can detect lanes in a road and calculate and display features like offset from the center of the lane, radius of curvature of the road etc.
+# 🚗 Lane Detection Algorithm
 
-## Methodology:
+<div style="display: flex; justify-content: center;">
+  <img src="video.gif" width="410"/> <img src="output.gif" width="410"/>
+</div>
 
-**Part 1: Identification of the Lanes**
+## 🎯 Aim
+The objective of this research is to develop a robust algorithm capable of detecting lanes on a roadway, alongside calculating and displaying critical features such as the offset from the center of the lane and the radius of curvature of the road.
 
-* *CNN MODEL*: SegNet architecture is used with optimized modifications to it. Encoder-Decoder pairs are used to create feature maps for classifications of different resolutions. The architecture is designed such that- the input is an image of road, the labeled output is an image with the lane marked with a single RGB channel, hence the output of the CNN model is an image with lane marked in a single RGB channel.
+---
 
-* *DATA SET*: 13,000 inputs and labels (80 x 160 dimensions)
+## 🛠️ Methodology
 
-* *TOOLS/PACKAGES*:  Keras, Scikit-learn;  LANGUAGE: Python
+### Part 1: Identification of the Lanes
 
-* *ARCHITECTURE*:
-  •	Encoding layer:  7 layers of Convolution operation along with intermittent Maxpooling and Dropouts
-  •	LSTM layer: 2 LSTM layers, resizing performed after each layer to maintain matrix dimensions
-  •	Decoding layer: 7 layers of transpose of Convolution operation or deconvolution performed with intermittent Upsampling and Dropouts
-  •	Adam Optimizer and Mean squared loss used 
+**🔍 CNN Model**:  
+The proposed methodology employs a SegNet architecture with specific optimizations. This architecture leverages encoder-decoder pairs to generate feature maps for classification at various resolutions. The input to the model is an image of a road, while the labeled output is an image with the lane highlighted in a single RGB channel. Thus, the CNN model's output is an image with the lane marked in a single RGB channel.
 
-* *RESULTS*:
+- **Data Set**: The dataset comprises 13,000 inputs and corresponding labels, each with dimensions of 80 x 160 pixels.
+- **Tools/Packages**: Keras, Scikit-learn
+- **Language**: Python
 
-Batch Size: 128, Epochs: 10
-Accuracy without LSTM layers=92% 
-Accuracy with LSTM layers=93.5% 
+**🧩 Architecture**:
+- **Encoding Layer**: This layer consists of 7 convolutional layers interspersed with max-pooling and dropout layers to enhance feature extraction and prevent overfitting.
+- **LSTM Layer**: Incorporates 2 LSTM layers with resizing operations after each layer to maintain consistent matrix dimensions, facilitating temporal feature learning.
+- **Decoding Layer**: Comprises 7 layers of transposed convolution (deconvolution) with intermittent upsampling and dropout layers, reconstructing the spatial dimensions of the input image.
+- **Optimizer**: Adam optimizer is utilized to minimize the loss function.
+- **Loss Function**: Mean squared error is employed as the loss function to measure the reconstruction quality.
 
-**Part 2: Mathematical Calculation and Extraction of Offset and Radius of Curvature of road** 
+**📊 Results**:
+- **Batch Size**: 128
+- **Epochs**: 10
+- **Accuracy**:
+  - Without LSTM layers: 92%
+  - With LSTM layers: 93.5%
 
-* *MODEL*: Use the live camera/video feed obtained after running the trained parameters of the CNN model which will give us the identified lane.  Extract the required features using OpenCV functions and mathematical formulas.
+### Part 2: Mathematical Calculation and Extraction of Offset and Radius of Curvature of the Road
 
-* *TOOLS/PACKAGES*:  OpenCV,   LANGUAGE: Python
+**🔍 Model**:  
+The trained CNN model parameters are applied to live camera or video feed to identify the lane markings. Subsequent feature extraction is performed using OpenCV functions and mathematical computations.
 
-* *ARCHITECTURE*:
-  •	Perform edge detection to get the edges of the lane and perspective transform to obtain perpendicular view of the lane
-  •	Identify the two separate lanes using sliding window technique
-  •	Use polynomial fit curve function to find out the quadratic function of curve of the lane
-  •	Once we have the quadratic function for the curvature of the lane, the radius of curvature of the road and offset from center of the road is calculated by mathematical formulas.
+- **Tools/Packages**: OpenCV
+- **Language**: Python
 
-* *RESULTS*:
+**🧩 Architecture**:
+- **Edge Detection**: Edge detection techniques are employed to delineate the lane boundaries, followed by a perspective transform to obtain a perpendicular view of the lane.
+- **Lane Identification**: The sliding window technique is used to segregate the left and right lane boundaries.
+- **Polynomial Fit**: A polynomial fit curve function is utilized to derive the quadratic function representing the curvature of the lane.
+- **Feature Calculation**: Based on the derived quadratic function, the radius of curvature and the offset from the center of the lane are computed using precise mathematical formulas.
 
-Offset calculation: giving result within 1-2m range which is ideal
-Radius of curvature: two radius of curvatures obtained for left and right boundary of lane each. Values correspond with the visual curves of the road.
+**📊 Results**:
+- **Offset Calculation**: Achieves results within a 1-2 meter range, deemed ideal for practical applications.
+- **Radius of Curvature**: Two distinct radii of curvature are computed for the left and right lane boundaries, correlating well with the visual curvature observed in the road imagery.
 
-* *CONCLUSION*
-This is a working lane detection algorithm model which seems to give a fair output on the recorded videos of the road. Real time deployment of this model is needed to verify and fine tune the mathematical calculations done in feature extraction.
+---
+
+## 🏁 Conclusion
+The lane detection algorithm developed in this study demonstrates effective performance on recorded road video data, successfully identifying lane boundaries and calculating key features such as the offset and radius of curvature. Further real-time deployment and testing are necessary to validate the model's accuracy and refine the mathematical calculations involved in feature extraction.
 
